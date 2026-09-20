@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Game Zone</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#080b18;
+    color:white;
+    text-align:center;
+}
+
+.screen{
+    display:none;
+    min-height:100vh;
+    padding:25px 15px;
+}
+
+#login{
+    display:block;
+    padding-top:100px;
+}
+
+.box{
+    width:95%;
+    max-width:500px;
+    margin:auto;
+    background:#11182e;
+    padding:30px 20px;
+    border-radius:25px;
+    box-shadow:0 10px 40px #000;
+}
+
+h1{
+    font-size:35px;
+    margin:10px 0 15px;
+}
+
+h2{
+    font-size:27px;
+}
+
+p{
+    color:#c5c8d5;
+    font-size:17px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:0;
+    border-radius:12px;
+    background:#070b18;
+    color:white;
+    font-size:17px;
+    text-align:center;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin:7px 0;
+    border:0;
+    border-radius:13px;
+    background:#6c5ce7;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+}
+
+button:active{
+    transform:scale(.97);
+}
+
+.game{
+    background:#11182e;
+    padding:20px;
+    margin:15px auto;
+    border-radius:20px;
+    max-width:600px;
+}
+
+.game span{
+    font-size:45px;
+}
+
+.top{
+    max-width:800px;
+    margin:auto;
+}
+
+.score{
+    background:#171f3c;
+    padding:15px;
+    border-radius:15px;
+    margin:15px 0;
+    font-size:19px;
+}
+
+.question{
+    font-size:24px;
+    font-weight:bold;
+    line-height:1.6;
+    margin:25px 0;
+}
+
+.answer{
+    background:#20294b;
+}
+
+.result{
+    min-height:35px;
+    margin:15px 0;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.back{
+    background:#343b58;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- LOGIN -->
+
+<div id="login" class="screen">
+
+    <div class="box">
+
+        <div style="font-size:60px;">
+            🎮
+        </div>
+
+        <h1>Game Zone</h1>
+
+        <p>
+            أهلاً بيك في عالم الألعاب 😂
+        </p>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="اكتب اسمك"
+        >
+
+        <button onclick="login()">
+            دخول 🚀
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- HOME -->
+
+<div id="home" class="screen">
+
+    <div class="top">
+
+        <h1>🎮 Game Zone</h1>
+
+        <div class="score">
+            🏆 النقاط:
+            <span id="points">0</span>
+        </div>
+
+        <div class="box">
+
+            <h2 id="welcome">
+                أهلاً 👋
+            </h2>
+
+            <p>
+                اختار اللعبة اللي تعجبك
+            </p>
+
+        </div>
+
+
+        <!-- GAME 1 -->
+
+        <div class="game">
+
+            <span>😂</span>
+
+            <h2>
+                اختار بين اتنين
+            </h2>
+
+            <p>
+                أسئلة غريبة ومضحكة
+            </p>
+
+            <button onclick="openChoose()">
+                العب 🎮
+            </button>
+
+        </div>
+
+
+        <!-- GAME 2 -->
+
+        <div class="game">
+
+            <span>🧠</span>
+
+            <h2>
+                صح ولا غلط
+            </h2>
+
+            <p>
+                اختبر معلوماتك
+            </p>
+
+            <button onclick="openTrueFalse()">
+                العب 🎮
+            </button>
+
+        </div>
+
+
+        <!-- GAME 3 -->
+
+        <div class="game">
+
+            <span>⚡</span>
+
+            <h2>
+                تحدي السرعة
+            </h2>
+
+            <p>
+                اضغط بسرعة!
+            </p>
+
+            <button onclick="openSpeed()">
+                العب 🎮
+            </button>
+
+        </div>
+
+
+        <!-- GAME 4 -->
+
+        <div class="game">
+
+            <span>🔢</span>
+
+            <h2>
+                خمن الرقم
+            </h2>
+
+            <p>
+                خمن الرقم السري
+            </p>
+
+            <button onclick="openNumber()">
+                العب 🎮
+            </button>
+
+        </div>
+
+
+        <!-- GAME 5 -->
+
+        <div class="game">
+
+            <span>🧩</span>
+
+            <h2>
+                لغز سريع
+            </h2>
+
+            <p>
+                شغل مخك شوية 😂
+            </p>
+
+            <button onclick="openRiddle()">
+                العب 🎮
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- CHOOSE GAME -->
+
+<div id="choose" class="screen">
+
+    <div class="box">
+
+        <h1>😂 اختار بين اتنين</h1>
+
+        <div id="chooseQuestion" class="question">
+            السؤال
+        </div>
+
+        <button
+            id="chooseA"
+            class="answer"
+            onclick="chooseA()">
+            الاختيار الأول
+        </button>
+
+        <button
+            id="chooseB"
+            class="answer"
+            onclick="chooseB()">
+            الاختيار الثاني
+        </button>
+
+        <div id="chooseResult" class="result"></div>
+
+        <button
+            class="back"
+            onclick="home()">
+            🏠 الرئيسية
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- TRUE FALSE -->
+
+<div id="truefalse" class="screen">
+
+    <div class="box">
+
+        <h1>🧠 صح ولا غلط</h1>
+
+        <div
+            id="trueQuestion"
+            class="question">
+            السؤال
+        </div>
+
+        <button
+            class="answer"
+            onclick="trueAnswer()">
+            ✅ صح
+        </button>
+
+        <button
+            class="answer"
+            onclick="falseAnswer()">
+            ❌ غلط
+        </button>
+
+        <div id="trueResult" class="result"></div>
+
+        <button
+            class="back"
+            onclick="home()">
+            🏠 الرئيسية
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- SPEED -->
+
+<div id="speed" class="screen">
+
+    <div class="box">
+
+        <h1>⚡ تحدي السرعة</h1>
+
+        <p>
+            استنى لحد ما يظهر "اضغط الآن"
+        </p>
+
+        <div
+            id="speedText"
+            class="result">
+            استعد...
+        </div>
+
+        <button
+            id="speedButton"
+            onclick="speedPress()">
+            استعد...
+        </button>
+
+        <button
+            class="back"
+            onclick="home()">
+            🏠 الرئيسية
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- NUMBER -->
+
+<div id="number" class="screen">
+
+    <div class="box">
+
+        <h1>🔢 خمن الرقم</h1>
+
+        <p>
+            الرقم من 1 إلى 20
+        </p>
+
+        <input
+            id="guess"
+            type="number"
+            placeholder="اكتب تخمينك">
+
+        <button onclick="guess()">
+            خمن 🎯
+        </button>
+
+        <div
+            id="guessResult"
+            class="result">
+        </div>
+
+        <button
+            class="back"
+            onclick="home()">
+            🏠 الرئيسية
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- RIDDLE -->
+
+<div id="riddle" class="screen">
+
+    <div class="box">
+
+        <h1>🧩 لغز سريع</h1>
+
+        <div class="question">
+            ما هو الشيء الذي كلما أخذت منه كبر؟
+        </div>
+
+        <button
+            class="answer"
+            onclick="riddleRight()">
+            الحفرة
+        </button>
+
+        <button
+            class="answer"
+            onclick="riddleWrong()">
+            الجبل
+        </button>
+
+        <button
+            class="answer"
+            onclick="riddleWrong()">
+            الكتاب
+        </button>
+
+        <div
+            id="riddleResult"
+            class="result">
+        </div>
+
+        <button
+            class="back"
+            onclick="home()">
+            🏠 الرئيسية
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =====================
+   VARIABLES
+===================== */
+
+var player = "";
+
+var score = 0;
+
+var chooseIndex = 0;
+
+var trueIndex = 0;
+
+var secretNumber = 0;
+
+var speedReady = false;
+
+var speedTime = 0;
+
+
+
+/* =====================
+   SHOW SCREEN
+===================== */
+
+function show(id){
+
+    document.getElementById("login").style.display = "none";
+
+    document.getElementById("home").style.display = "none";
+
+    document.getElementById("choose").style.display = "none";
+
+    document.getElementById("truefalse").style.display = "none";
+
+    document.getElementById("speed").style.display = "none";
+
+    document.getElementById("number").style.display = "none";
+
+    document.getElementById("riddle").style.display = "none";
+
+    document.getElementById(id).style.display = "block";
+
+}
+
+
+
+/* =====================
+   LOGIN
+===================== */
+
+function login(){
+
+    var name =
+        document.getElementById("name").value;
+
+    if(name.trim() == ""){
+
+        alert("اكتب اسمك الأول 😂");
+
+        return;
+
+    }
+
+    player = name;
+
+    document.getElementById("welcome").innerHTML =
+        "أهلاً يا " + player + " 👋";
+
+    show("home");
+
+}
+
+
+
+/* =====================
+   HOME
+===================== */
+
+function home(){
+
+    show("home");
+
+}
+
+
+
+/* =====================
+   SCORE
+===================== */
+
+function addPoint(){
+
+    score = score + 1;
+
+    document.getElementById("points").innerHTML =
+        score;
+
+}
+
+
+
+/* =====================
+   CHOOSE
+===================== */
+
+var chooseQuestions = [
+
+    [
+        "تفضل تعيش أسبوع من غير موبايل ولا أسبوع من غير حلويات؟",
+        "من غير موبايل 📵",
+        "من غير حلويات 🍫"
+    ],
+
+    [
+        "تفضل تطير ولا تختفي؟",
+        "أطير 🦅",
+        "أختفي 👻"
+    ],
+
+    [
+        "تفضل بيتزا كل يوم ولا برجر كل يوم؟",
+        "بيتزا 🍕",
+        "برجر 🍔"
+    ],
+
+    [
+        "تفضل تكون سريع جدًا ولا قوي جدًا؟",
+        "سريع ⚡",
+        "قوي 💪"
+    ]
+
+];
+
+
+function openChoose(){
+
+    chooseIndex = 0;
+
+    show("choose");
+
+    loadChoose();
+
+}
+
+
+function loadChoose(){
+
+    var q =
+        chooseQuestions[chooseIndex];
+
+    document.getElementById("chooseQuestion").innerHTML =
+        q[0];
+
+    document.getElementById("chooseA").innerHTML =
+        q[1];
+
+    document.getElementById("chooseB").innerHTML =
+        q[2];
+
+    document.getElementById("chooseResult").innerHTML =
+        "";
+
+}
+
+
+function chooseA(){
+
+    addPoint();
+
+    document.getElementById("chooseResult").innerHTML =
+        "😂 اختيار جامد! +1 نقطة";
+
+    nextChoose();
+
+}
+
+
+function chooseB(){
+
+    addPoint();
+
+    document.getElementById("chooseResult").innerHTML =
+        "😂 اختيار جامد! +1 نقطة";
+
+    nextChoose();
+
+}
+
+
+function nextChoose(){
+
+    chooseIndex++;
+
+    if(chooseIndex >= chooseQuestions.length){
+
+        chooseIndex = 0;
+
+    }
+
+    setTimeout(function(){
+
+        loadChoose();
+
+    },1000);
+
+}
+
+
+
+/* =====================
+   TRUE FALSE
+===================== */
+
+var trueQuestions = [
+
+    [
+        "الشمس نجم.",
+        true
+    ],
+
+    [
+        "الأرض أكبر من الشمس.",
+        false
+    ],
+
+    [
+        "الماء يتجمد عند 0 درجة مئوية.",
+        true
+    ],
+
+    [
+        "القمر أكبر من الأرض.",
+        false
+    ],
+
+    [
+        "الإنسان لديه قلب واحد.",
+        true
+    ]
+
+];
+
+
+function openTrueFalse(){
+
+    trueIndex = 0;
+
+    show("truefalse");
+
+    loadTrue();
+
+}
+
+
+function loadTrue(){
+
+    document.getElementById("trueQuestion").innerHTML =
+        trueQuestions[trueIndex][0];
+
+    document.getElementById("trueResult").innerHTML =
+        "";
+
+}
+
+
+function trueAnswer(){
+
+    checkTrue(true);
+
+}
+
+
+function falseAnswer(){
+
+    checkTrue(false);
+
+}
+
+
+function checkTrue(answer){
+
+    var correct =
+        trueQuestions[trueIndex][1];
+
+    if(answer == correct){
+
+        addPoint();
+
+        document.getElementById("trueResult").innerHTML =
+            "✅ صح! +1 نقطة";
+
+    }else{
+
+        document.getElementById("trueResult").innerHTML =
+            "❌ غلط 😂";
+
+    }
+
+    trueIndex++;
+
+    if(trueIndex >= trueQuestions.length){
+
+        trueIndex = 0;
+
+    }
+
+    setTimeout(function(){
+
+        loadTrue();
+
+    },1000);
+
+}
+
+
+
+/* =====================
+   SPEED
+===================== */
+
+function openSpeed(){
+
+    show("speed");
+
+    speedReady = false;
+
+    document.getElementById("speedText").innerHTML =
+        "استنى...";
+
+    document.getElementById("speedButton").innerHTML =
+        "استعد...";
+
+    var delay =
+        Math.floor(Math.random() * 3000) + 1500;
+
+    setTimeout(function(){
+
+        speedReady = true;
+
+        speedTime = new Date().getTime();
+
+        document.getElementById("speedText").innerHTML =
+            "اضغط بسرعة! ⚡";
+
+        document.getElementById("speedButton").innerHTML =
+            "اضغط الآن! ⚡";
+
+    },delay);
+
+}
+
+
+function speedPress(){
+
+    if(speedReady == false){
+
+        document.getElementById("speedText").innerHTML =
+            "😂 استعجلت! استنى الإشارة.";
+
+        return;
+
+    }
+
+    var now =
+        new Date().getTime();
+
+    var result =
+        now - speedTime;
+
+    speedReady = false;
+
+    addPoint();
+
+    document.getElementById("speedText").innerHTML =
+        "⚡ سرعتك " + result + " مللي ثانية! +1";
+
+    document.getElementById("speedButton").innerHTML =
+        "جولة جديدة";
+
+    setTimeout(function(){
+
+        openSpeed();
+
+    },1500);
+
+}
+
+
+
+/* =====================
+   NUMBER
+===================== */
+
+function openNumber(){
+
+    show("number");
+
+    secretNumber =
+        Math.floor(Math.random() * 20) + 1;
+
+    document.getElementById("guess").value = "";
+
+    document.getElementById("guessResult").innerHTML =
+        "";
+
+}
+
+
+function guess(){
+
+    var value =
+        Number(
+            document.getElementById("guess").value
+        );
+
+    if(value < 1 || value > 20){
+
+        document.getElementById("guessResult").innerHTML =
+            "اكتب رقم من 1 إلى 20 😂";
+
+        return;
+
+    }
+
+    if(value == secretNumber){
+
+        addPoint();
+
+        document.getElementById("guessResult").innerHTML =
+            "🎉 صح! الرقم كان " +
+            secretNumber +
+            " +1 نقطة";
+
+        secretNumber =
+            Math.floor(Math.random() * 20) + 1;
+
+    }
+
+    else if(value < secretNumber){
+
+        document.getElementById("guessResult").innerHTML =
+            "⬆️ الرقم أكبر";
+
+    }
+
+    else{
+
+        document.getElementById("guessResult").innerHTML =
+            "⬇️ الرقم أصغر";
+
+    }
+
+}
+
+
+
+/* =====================
+   RIDDLE
+===================== */
+
+function openRiddle(){
+
+    show("riddle");
+
+    document.getElementById("riddleResult").innerHTML =
+        "";
+
+}
+
+
+function riddleRight(){
+
+    addPoint();
+
+    document.getElementById("riddleResult").innerHTML =
+        "🎉 صح! الحفرة. +1 نقطة";
+
+}
+
+
+function riddleWrong(){
+
+    document.getElementById("riddleResult").innerHTML =
+        "❌ غلط 😂 الإجابة هي الحفرة.";
+
+}
+
+</script>
+
+
+</body>
+</html>
