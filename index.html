@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Game Zone</title>
+<title>Vexora Play</title>
 
 <style>
 
@@ -134,9 +134,7 @@ button:active{
 </style>
 </head>
 
-
 <body>
-
 
 <!-- LOGIN -->
 
@@ -148,7 +146,7 @@ button:active{
             🎮
         </div>
 
-        <h1>Game Zone</h1>
+        <h1>Vexora Play</h1>
 
         <p>
             أهلاً بيك في عالم الألعاب 😂
@@ -169,14 +167,13 @@ button:active{
 </div>
 
 
-
 <!-- HOME -->
 
 <div id="home" class="screen">
 
     <div class="top">
 
-        <h1>🎮 Game Zone</h1>
+        <h1>🎮 Vexora Play</h1>
 
         <div class="score">
             🏆 النقاط:
@@ -305,7 +302,6 @@ button:active{
 </div>
 
 
-
 <!-- CHOOSE GAME -->
 
 <div id="choose" class="screen">
@@ -343,7 +339,6 @@ button:active{
     </div>
 
 </div>
-
 
 
 <!-- TRUE FALSE -->
@@ -385,7 +380,6 @@ button:active{
 </div>
 
 
-
 <!-- SPEED -->
 
 <div id="speed" class="screen">
@@ -419,7 +413,6 @@ button:active{
     </div>
 
 </div>
-
 
 
 <!-- NUMBER -->
@@ -457,7 +450,6 @@ button:active{
     </div>
 
 </div>
-
 
 
 <!-- RIDDLE -->
@@ -506,13 +498,9 @@ button:active{
 </div>
 
 
-
 <script>
 
-
-/* =====================
-   VARIABLES
-===================== */
+/* VARIABLES */
 
 var player = "";
 
@@ -529,10 +517,7 @@ var speedReady = false;
 var speedTime = 0;
 
 
-
-/* =====================
-   SHOW SCREEN
-===================== */
+/* SHOW SCREEN */
 
 function show(id){
 
@@ -555,10 +540,7 @@ function show(id){
 }
 
 
-
-/* =====================
-   LOGIN
-===================== */
+/* LOGIN */
 
 function login(){
 
@@ -583,10 +565,7 @@ function login(){
 }
 
 
-
-/* =====================
-   HOME
-===================== */
+/* HOME */
 
 function home(){
 
@@ -595,10 +574,7 @@ function home(){
 }
 
 
-
-/* =====================
-   SCORE
-===================== */
+/* SCORE */
 
 function addPoint(){
 
@@ -610,10 +586,7 @@ function addPoint(){
 }
 
 
-
-/* =====================
-   CHOOSE
-===================== */
+/* CHOOSE */
 
 var chooseQuestions = [
 
@@ -718,10 +691,7 @@ function nextChoose(){
 }
 
 
-
-/* =====================
-   TRUE FALSE
-===================== */
+/* TRUE FALSE */
 
 var trueQuestions = [
 
@@ -825,10 +795,7 @@ function checkTrue(answer){
 }
 
 
-
-/* =====================
-   SPEED
-===================== */
+/* SPEED */
 
 function openSpeed(){
 
@@ -898,10 +865,7 @@ function speedPress(){
 }
 
 
-
-/* =====================
-   NUMBER
-===================== */
+/* NUMBER */
 
 function openNumber(){
 
@@ -965,10 +929,7 @@ function guess(){
 }
 
 
-
-/* =====================
-   RIDDLE
-===================== */
+/* RIDDLE */
 
 function openRiddle(){
 
@@ -998,7 +959,6 @@ function riddleWrong(){
 }
 
 </script>
-
 
 </body>
 </html>
